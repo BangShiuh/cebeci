@@ -41,6 +41,20 @@ C
 	READ(5,*) NX0 
 	Write(6,*) "Enter number of instability lines to be calcualted"
       READ(5,*) IXT
+
+C********* MODIFICATION *********
+
+C Ask for the initial estimates for alphar and omegar
+	Write(6,*) "ENTER estimation for real(alpha) - Example : alphar =
+     f		 0.1"
+      READ(5,*) alfr
+	Write(6,*) "ENTER estimation for real(omega) - Example : omegar =
+     f		 0.035"
+      READ(5,*) omegr
+
+C***** End of Modification *****
+
+
 C       CNU=1.6E-4
 C       UREF = 400.0*1.6
 C       BIGL  =1
@@ -254,7 +268,14 @@ C generate lower surface
       WRITE(13,88) (UECL(I), I=1, NLower)
 	If (NWAKE .GT. 0 ) write(13,88) (UE1W(I), I=1, NWAKE)  
 	WRITE(13,*) " nx0  ixt    uinf     bigl     alfar    omegar"
-	WRITE(13,7777)   nx0, ixt,  UREF,   BIGL,  0.100,      0.035 
+
+C********* MODIFICATION *********
+
+C Write the initial estimates for alphar and omegar
+	WRITE(13,7777)   nx0, ixt,  UREF,   BIGL,  alfr,     omegr 
+
+C***** End of Modification *****
+
 	WRITE(13,*)
       WRITE(13,*)
 	
@@ -377,7 +398,14 @@ C generate the upper surface
       WRITE(13,88) (UECU(I), I=1, NUpper)
       If (NWAKE .GT. 0 ) write(13,88) (UE2W(I), I=1, NWAKE)
 	WRITE(13,*) " nx0  ixt    uinf     bigl     alfar    omegar"
-	WRITE(13,7777)   nx0, ixt,  UREF,   BIGL,  0.100,      0.035 
+
+C********* MODIFICATION *********
+
+C Write the initial estimates for alphar and omegar
+	WRITE(13,7777)   nx0, ixt,  UREF,   BIGL,  alfr,     omegr 
+	
+C***** End of Modification *****
+	
 	WRITE(13,*)
       WRITE(13,*)
 	
