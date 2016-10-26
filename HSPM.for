@@ -8,33 +8,33 @@ C     MAIN (With Wake)
       COMMON /COMP / FMACH,C2,C6,C7,C8                 
       COMMON /WWAKE/ NW,XW(51),YW(51),SINW(51),COSW(51),QWM(51) 
       DIMENSION TITLE(20),DBODY(200),SBGEO(201),CBGEO(201)
-	CHARACTER*80 input_name, output_name  
+C	CHARACTER*80 input_name, output_name  
 	                    
       PI      = 3.1415926585                                            
       PI2INV  = .5/PI 
      
-	write(6,*) "Enter input file name (include extension name)"
-      read(5, *) input_name
-      write(6,*) "Enter output file name"
-      read(5, *) output_name 
+C	   write(6,*) "Enter input file name (include extension name)"
+C      read(5, *) input_name
+C      write(6,*) "Enter output file name"
+C      read(5, *) output_name 
       
 	ICYCLE = 1
 
 C 233  FORMAT(I1)
 C 234  FORMAT(I2)
       print*, "Your input file is ",  input_name
-	print*, "Your output file is ",  output_name
+	  print*, "Your output file is ",  output_name
 
-      open(unit=5, file=input_name, status="OLD")
-      open(unit=6, file=output_name)
+      open(unit=5, file="naca.txt", status="OLD")
+      open(unit=6, file="hspm.txt")
 
       
-	READ (5,*)                                            
+	  READ (5,*)                                            
       READ (5,*) NODTOT, NW                                           
  501  FORMAT(2I5)
       READ (5,*)                                                       
       READ (5,*)(X(I),I=1,NODTOT+1)
-	READ (5,*)                                   
+	  READ (5,*)                                   
       READ (5,*)(Y(I),I=1,NODTOT+1)
 	
 	DO I =1, NODTOT+1
@@ -56,7 +56,7 @@ C 234  FORMAT(I2)
  1030 FORMAT (//,'SOLUTION AT ALPHA = ',F10.5,/)           
       COSALF  = COS(ALPHA*PI/180.)                                      
       SINALF  = SIN(ALPHA*PI/180.)
-	READ (5,*)                                      
+	  READ (5,*)                                      
       READ (5,*) FMACH
       GAM    = 1.4                                                       
       C2     = 0.5 * (GAM-1.0)       
@@ -139,7 +139,7 @@ C	write(6,*) input_name(1:10)
 C	else
 C      write(6,*) input_name(1:11)
 C	endif
-      CLOSE(6)
+    CLOSE(6)
 	CLOSE(5)
 	PRINT*," "
 	PRINT*,"Calculations are successfully completed."
