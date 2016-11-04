@@ -178,13 +178,11 @@ C
 	PRINT*,"Calculations are successfully completed."
 C      PRINT*,"The output is saved in ", OUTPUT_NAME
 	PRINT*," "
+ 	PRINT*,"Hit any key to close this DOS-window."
+ 	READ(5,*)
 	 	 
       STOP
       END
-
-!-----------------------------------------------------------------------
-! SUBROUTINE
-!-----------------------------------------------------------------------
 
       SUBROUTINE VELPRO(INDEX)
       COMMON/BLC0/ NP,NX,NXT,NX0,IX,IXT,RL,C,

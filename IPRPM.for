@@ -484,7 +484,8 @@ C generate the upper surface
 	PRINT*,"Calculations are successfully completed."
 C       PRINT*,"The output is saved in ", OUTPUT_NAME
 	PRINT*," "
-	 
+ 	PRINT*,"Hit any key to close this DOS-window."
+ 	READ(5,*) 	 
   
  8000 FORMAT(20I3)
  8101 FORMAT(7F10.5)

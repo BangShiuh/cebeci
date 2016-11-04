@@ -8,17 +8,16 @@ C     MAIN (With Wake)
       COMMON /COMP / FMACH,C2,C6,C7,C8                 
       COMMON /WWAKE/ NW,XW(51),YW(51),SINW(51),COSW(51),QWM(51) 
       DIMENSION TITLE(20),DBODY(200),SBGEO(201),CBGEO(201)
-      CHARACTER*80 input_name, output_name  
+	CHARACTER*80 input_name, output_name  
 	                    
       PI      = 3.1415926585                                            
       PI2INV  = .5/PI 
- 
-C      write(*,*) "Enter input file name (include extension name)"
-C      read(*,*) input_name
-C      write(*,*) "Enter output file name"
-C      read(*,*) output_name 
-      input_name = "naca.txt"
-      output_name = "hspm.txt"
+     
+	write(6,*) "Enter input file name (include extension name)"
+      read(5, *) input_name
+      write(6,*) "Enter output file name"
+      read(5, *) output_name 
+      
 	ICYCLE = 1
 
 C 233  FORMAT(I1)
@@ -30,7 +29,7 @@ C 234  FORMAT(I2)
       open(unit=6, file=output_name)
 
       
-      READ (5,*)                                            
+	READ (5,*)                                            
       READ (5,*) NODTOT, NW                                           
  501  FORMAT(2I5)
       READ (5,*)                                                       
@@ -140,20 +139,17 @@ C	write(6,*) input_name(1:10)
 C	else
 C      write(6,*) input_name(1:11)
 C	endif
-        CLOSE(6)
+      CLOSE(6)
 	CLOSE(5)
 	PRINT*," "
 	PRINT*,"Calculations are successfully completed."
 C      PRINT*,"The output is saved in ", OUTPUT_NAME
-	PRINT*," "	 
+	PRINT*," "
+ 	PRINT*,"Hit any key to close this DOS-window."
+ 	READ(5,*) 	 
 	                                               
       STOP                                                              00003570
       END                                                               00003580
-
-
-!-------------------------------------------------------------------------------
-! SUBROUTINE
-!-------------------------------------------------------------------------------
       SUBROUTINE COEF(SINALF,COSALF)                                    00007190
       COMMON /BOD/ NODTOT,X(201),Y(201),                  
      +             XMID(200),YMID(200),COSTHE(200),SINTHE(200)                  
@@ -584,7 +580,7 @@ C-------------------------------------------------------------------------------
       PARAMETER (NB=5,NXB=201,NXBT=NB*NXB,NXW=51,NSOLV=15)
       COMMON /BOD/ NODTOT, X(201), Y(201),
      +      XMID(200),YMID(200),COSTHE(200),SINTHE(200)
-      COMMON /NUM/ PI,PI2INV, ICYCLE 
+      COMMON /NUM  / PI,PI2INV
       COMMON/COUPL/DLSP(201),VNP(201),QW(51),DELW(51,2)
       COMMON /WWAKE/ NW,XW(51),YW(51),SINW(51),COSW(51),
      +               QWM(51)
@@ -680,4 +676,3 @@ C
  1000 FORMAT(3X,'WARNING: WAKE NOT EXACTLY A DIVIDING STREAMLINE ',
      &       'FOR ELEMENT',I3)
       END
-

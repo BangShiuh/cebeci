@@ -398,7 +398,8 @@ c
 	PRINT*,"Calculations are successfully completed."
 C      PRINT*,"The output is saved in ", OUTPUT_NAME
 	PRINT*," "
-	
+ 	PRINT*,"Hit any key to close this DOS-window."
+ 	READ(5,*) 	
 c
       stop
   201 format (' flow separates in the standard mode; print data',
@@ -419,10 +420,6 @@ c
      &        'nxs =',i3,4x,'** transition location : ntr =  ',i3)
  9999 format('iteration exceeds max  at  nx =',i3/)
       end
-
-!-------------------------------------------------------------------
-! SUBROUTINE
-!-------------------------------------------------------------------
 
       subroutine input 
       parameter(mx=201,my=151,mx2=mx*2)
