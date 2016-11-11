@@ -1,0 +1,104 @@
+  NXT   NXTE    NXS    NPT   ISWPT  isep  istab  icont
+   51     51     14     81     20      1      1      1
+  RL            XCTR     ETAE     VGP     DETA     P2
+   900000.00   4.2000   8.0000   1.0500   0.0100   1.0000
+ xbl(i),i=1,nxt
+        0.010000         0.010000         0.030000         0.050000         0.070000
+        0.090000         0.110000         0.130000         0.150000         0.170000
+        0.190000         0.210000         0.230000         0.250000         0.270000
+        0.290000         0.310000         0.330000         0.350000         0.370000
+        0.390000         0.410000         0.430000         0.450000         0.470000
+        0.490000         0.510000         0.530000         0.550000         0.570000
+        0.590000         0.610000         0.630000         0.650000         0.670000
+        0.690000         0.710000         0.730000         0.750000         0.770000
+        0.790000         0.810000         0.830000         0.850000         0.870000
+        0.890000         0.910000         0.930000         0.950000         0.970000
+        0.990000
+ ybl(i),i=1,nxt
+       -0.000511         0.009760         0.027490         0.041890         0.053510
+        0.062830         0.070250         0.076130         0.080780         0.084460
+        0.087370         0.089710         0.091600         0.093180         0.094510
+        0.095680         0.096710         0.097650         0.098490         0.099260
+        0.099930         0.100490         0.100920         0.101210         0.101330
+        0.101250         0.100950         0.100410         0.099620         0.098560
+        0.097210         0.095570         0.093650         0.091420         0.088910
+        0.086110         0.083040         0.079690         0.076080         0.072210
+        0.068080         0.063670         0.058990         0.054000         0.048670
+        0.042930         0.036730         0.029960         0.022500         0.014220
+        0.004930
+ ubl(i),i=1,nxt
+        0.000000         0.934370         1.100770         1.251070         1.353940
+        1.417310         1.449890         1.460150         1.455590         1.442200
+        1.424460         1.405370         1.386970         1.370470         1.356570
+        1.345530         1.337430         1.332090         1.329270         1.328680
+        1.329830         1.332400         1.335970         1.340090         1.344320
+        1.348300         1.351690         1.354200         1.355590         1.355630
+        1.354240         1.351360         1.347020         1.341270         1.334250
+        1.326160         1.317120         1.307390         1.297080         1.286250
+        1.275060         1.263410         1.250880         1.236980         1.220790
+        1.200570         1.173700         1.136130         1.081360         0.996240
+        0.826240
+  nx0  ixt    uinf     bigl     alfar    omegar
+  15    5    38.2500   3.2000   0.1000   0.0350
+ 
+ 
+ hspm.txt                                                                       
+  Angle of attack =  0.000000000000000E+000
+ 
+ 
+ -----------Data Explanation-------------
+ NXT NXTE NPT NXS ISWPT ISEP ISTAB ICONT
+  RL,XCTR,ETAE,VGP,DETA(1),P2(1)
+  X(1)  ...  X(NXT)
+  Y(1)  ...  Y(NXT)
+  UE(1) ...  UE(NXT)
+  NX0, IXT, UINF, BIGL, ALFAR, OMEGAR
+  NXT    ---  The number of x-stations,including wake points if there are
+              if there are no wake points, nxt = nxte
+  NXTe   ---  The number of x-stations on the body
+  NPT   ---  The number of normal grid points
+  nxs   ---  x - station where cals switch to inverse method
+  iswpt ---  total number of inv/vis
+  isep  ---  index:
+             = 1, turn on transition if laminar flow occurs
+             = 0, flow remains laminar even if laminar flow occurs
+  istab ---  index for stability calcualtion
+             = 1, yes. two input files for stability calculation
+                       will be generated, but user has to input
+                       nx0,ixt,uinf,bigl,alfar, omega
+                       nx0  : nx station stability calculation starts
+                       ixt  : no of lines stability 
+                              amplification will be calculated
+                       unif : freestream velocity
+                       bigl : ref. length on which Rey is calculated
+                       alfar; real value of stability wave number
+                       omega: real value of stability frequency
+                         both alfar & omega are normalized values
+             = 0, no.  no file will be generated. user does not
+                       have to input nx0,ixt,uinf,bigl,alfar, omega
+  icont ---  index for using continuation to guess alfar, omegar
+             = 1, yes. continuation method will be used to determine
+                  alfar, omegar. user can input arbitrary alfar, omegar
+             = 0, no. continuation method will not be used to determine
+                  alfar, omegar. user has to guess alfar, omegar as
+                  accurate as possible at nx0
+  X(I)  ---  The x-coordinate of geometry
+  Y(I)  ---  The y-coordinate of geometry
+  UE(I) ---  The external velocity
+  RL    ---  Reynolds number
+  XCTR  ---  Transition location
+  ETAE  ---  The boundary layer thickness
+  VGP   ---  The variable grid paramemter
+  DETA(1)--  The size of first normal grid
+  P2(1)  --  Initial pressure at first x-station
+ c
+ c the following variables are used for stability cal. only
+ c
+ NX0, IXT, UINF, BIGL, ALFAR, OMEGAR
+  NX0    --  1st NX station stability to be calculated
+  IXT    --  no of instability lines to be calcualted
+             to determine the transition location
+  UINF   --  Refernece velocity used to normalize the vel. scale
+  BIGL   --  Refernece length used to normalize the length scale
+  ALFAR  --  Normalized instability wave number
+  OMEGAR --  Normalized instability wave frequency

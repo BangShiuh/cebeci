@@ -5,6 +5,7 @@ c	four numbers of its definition
 c   Note: the input data should have the order of 
 c   lower trailing edge to leading edge
 c   upper leading edge to trailing edge 
+c   source /opt/intel/bin/compilervars.sh intel64
 
 
 	Program main
@@ -23,6 +24,11 @@ c     enter how many points of data
       write(*,*) 'enter how many points of data'
       read(*,*) nmax
 
+	  write(6,*) "Enter the angle of attack"
+	  read(5,*) aoa
+	  write(6,*) "Enter the mach number"
+	  read(5,*) mach
+
 c     not sure what is nwake 
       nwake = 0
 
@@ -32,7 +38,7 @@ c     read the file from here
 		      read(7,2000) xa(i), ya(i)
 	      enddo
       CLOSE(unit=7)
- 2000 format(2f10.6)
+ 2000 format(2f10.5)
 
 C	Generate the output file
 	open (unit=8, file='naca.txt')
