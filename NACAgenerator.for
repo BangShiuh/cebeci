@@ -10,6 +10,7 @@ c	four numbers of its definition
 	Program main
 
 	integer nmax, nsur, i, nwake, column, counta, count
+	parameter (pi = 4.0*atan(1.0))
 	real chord,m,p,t,h,x,yc,yt,dyc,theta,xu,yu,xl,yl,mc,pm,aoa,mach
 	dimension x(1000), yc(1000), yt(1000), dyc(1000), theta(1000),
      f		xu(1000), yu(1000), xl(1000), yl(1000), xa(1000), ya(1000)
@@ -45,8 +46,12 @@ C	Generate values of x from 0 to the maximum chord
 	x(nsur+1) = chord
 
 	do i = 2, nsur
-		x(i) = x(i-1)+(x(nsur+1)-x(1))/nsur
+        x(i) = x(i-1)+(x(nsur+1)-x(1))/nsur
 	enddo
+	do i = 2, nsur
+        x(i) = (1.0-cos(PI*x(i))) / 2.0
+	enddo
+
 
 C	Compute the mean camber line coordinates
 
@@ -57,8 +62,10 @@ C	Compute the mean camber line coordinates
 	do i = 1, nsur+1
 		if (x(i).lt.sep) then
 			yc(i) = mc*(2*pm*x(i)-x(i)**2)/(pm**2)
+            dyc(i) = 2.0*mc*(pm-x(i))/(pm**2)
 		else
 			yc(i) = mc*((1-2*pm)+2*pm*x(i)-x(i)**2)/((1-pm)**2)
+            dyc(i) = 2.0*mc*(pm-x(i))/((1-pm)**2)
 		endif
 	enddo
 
@@ -70,14 +77,6 @@ C	Calculate the thickness distribution
 	enddo
 
 C	Determine the final coordinates
-
-c		derivative of yc
-
-	dyc(1) = (yc(2)-yc(1))/h
-	do i = 2, nsur
-		dyc(i) = (yc(i+1)-yc(i-1))/(2*h)
-	enddo
-	dyc(nsur+1) = (yc(nsur+1)-yc(nsur))/h
 
 	do i = 1, nsur+1
 		theta(i) = atan(dyc(i))
@@ -142,10 +141,10 @@ c	write(8,1150) (ya(count+1+j), j = 1,nb)
 
 	stop
 
- 1000 format ('  NOTDOT   NWAKE')
+ 1000 format ('  NODTOT   NWAKE')
  1050 format ('   ',i4,'   ',i4)
  1100 format (' X(I), I=1...   ',i4,'            Airfoil x-coordinate')
- 1150 format (' ',6f10.6)
+ 1150 format (6f10.6)
  1200 format (' Y(I), I=1...   ',i4,'            Airfoil y-coordinate')
  1250 format (' angle of attack')
  1300 format (' Mach number')

@@ -13,10 +13,9 @@ C     MAIN (With Wake)
       PI      = 3.1415926585                                            
       PI2INV  = .5/PI 
      
-	write(6,*) "Enter input file name (include extension name)"
-      read(5, *) input_name
-      write(6,*) "Enter output file name"
-      read(5, *) output_name 
+
+	input_name = "naca.txt"
+	output_name = "hspm.txt"
       
 	ICYCLE = 1
 
@@ -144,9 +143,7 @@ C	endif
 	PRINT*," "
 	PRINT*,"Calculations are successfully completed."
 C      PRINT*,"The output is saved in ", OUTPUT_NAME
-	PRINT*," "
- 	PRINT*,"Hit any key to close this DOS-window."
- 	READ(5,*) 	 
+	PRINT*," "	 
 	                                               
       STOP                                                              00003570
       END                                                               00003580

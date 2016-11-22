@@ -305,7 +305,7 @@ c
       if(istab .eq. 1) then
 c
          if(nx0 .gt. ntr-1) then
-            write(6,*) '1st station for stabiity calculation ',
+            write(*,*) '1st station for stabiity calculation ',
      1        ' falls in turbulent region. no files are',
      1        ' generated for stability analysis'
             goto 1100
@@ -329,7 +329,7 @@ c
          if(rdelst(nx0) .lt. rdel_c) then
             nx0 = nx0 + 1    
             if(nx0.gt.ntr-1) then
-               write(6,*) 'no stability cal. can be performed',
+               write(*,*) 'no stability cal. can be performed',
      1           ' no files generated for stability analysis'
                goto 1100
             endif
@@ -397,9 +397,7 @@ c
 	PRINT*," "
 	PRINT*,"Calculations are successfully completed."
 C      PRINT*,"The output is saved in ", OUTPUT_NAME
-	PRINT*," "
- 	PRINT*,"Hit any key to close this DOS-window."
- 	READ(5,*) 	
+
 c
       stop
   201 format (' flow separates in the standard mode; print data',

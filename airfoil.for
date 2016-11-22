@@ -10,6 +10,7 @@ c	four numbers of its definition
 	Program main
 
 	integer nmax, nsur, i, nwake, column, counta, count
+	parameter (pi = 4.0*atan(1.0))
 	real chord,m,p,t,h,x,yc,yt,dyc,theta,xu,yu,xl,yl,mc,pm,aoa,mach
 	dimension x(1000), yc(1000), yt(1000), dyc(1000), theta(1000),
      f		xu(1000), yu(1000), xl(1000), yl(1000), xa(1000), ya(1000)
@@ -45,8 +46,15 @@ C	Generate values of x from 0 to the maximum chord
 	x(nsur+1) = chord
 
 	do i = 2, nsur
-		x(i) = x(i-1)+(x(nsur+1)-x(1))/nsur
+        x(i) = x(i-1)+(x(nsur+1)-x(1))/nsur
 	enddo
+
+c       create concentration at the edge
+
+c	do i = 2, nsur
+c        x(i) = (1.0-cos(PI*x(i))) / 2.0
+c	enddo
+
 
 C	Compute the mean camber line coordinates
 
@@ -57,8 +65,10 @@ C	Compute the mean camber line coordinates
 	do i = 1, nsur+1
 		if (x(i).lt.sep) then
 			yc(i) = mc*(2*pm*x(i)-x(i)**2)/(pm**2)
+            dyc(i) = 2.0*mc*(pm-x(i))/(pm**2)
 		else
 			yc(i) = mc*((1-2*pm)+2*pm*x(i)-x(i)**2)/((1-pm)**2)
+            dyc(i) = 2.0*mc*(pm-x(i))/((1-pm)**2)
 		endif
 	enddo
 
@@ -71,14 +81,6 @@ C	Calculate the thickness distribution
 
 C	Determine the final coordinates
 
-c		derivative of yc
-
-	dyc(1) = (yc(2)-yc(1))/h
-	do i = 2, nsur
-		dyc(i) = (yc(i+1)-yc(i-1))/(2*h)
-	enddo
-	dyc(nsur+1) = (yc(nsur+1)-yc(nsur))/h
-
 	do i = 1, nsur+1
 		theta(i) = atan(dyc(i))
 	enddo
@@ -87,16 +89,17 @@ c		upper surface
 
 	do i = 1, nsur+1                               
 		xu(i) = x(i) - yt(i)*sin(theta(i))
-		yu(i) = -4.444*xu(i)**6 + 15.309*xu(i)**5 - 20.969*xu(i)**4 + 
-     f          14.34 * xu(i)**3 - 5.313*xu(i)**2 + 1.077*xu(i)
+		yu(i) = -6.77928*xu(i)**6 + 22.8241*xu(i)**5 - 30.2556*xu(i)**4 + 
+     f          19.8253 * xu(i)**3 - 6.88211*xu(i)**2 + 1.26759*xu(i)
 	enddo
 
 c		lower surface
 
 	do i = 1, nsur+1
-		xl(i) = x(i) + yt(i)*sin(theta(i))
-		yl(i) = 2.846*xl(i)**6 - 11.236*xl(i)**5 + 16.09*xl(i)**4 - 
-     f          10.865 * xl(i)**3 + 3.806*xl(i)**2 - 0.641*xl(i)
+		xl(i) = x(i) + yt(i)*sin(theta(i)) 
+		yl(i) = 3.08687*xl(i)**6 - 12.0141*xl(i)**5 + 17.0528*xl(i)**4 - 
+     f          11.4338 * xl(i)**3 + 3.9684*xl(i)**2 - 0.66017*xl(i)
+
 	enddo
 
 C	Generate the output file
@@ -113,13 +116,20 @@ C	Generate the output file
 	write(8,1000)
 	write(8,1050) nmax, nwake
 
+	write(8,1100) nmax+1
 
+	count = 0
+	column = 6
+	counta = nmax/column
 	
-	do i = 0, nmax
-		write(8,1150) xa(i),ya(i)
+	do i = 0, counta
+		write(8,1150) (xa(column*(i)+j), j = 1,column)
+	    count = count + column
 	enddo
 
+	count = 0
 
+	write(8,1200) nmax+1
 	
 	do i = 0, counta
 		write(8,1150) (ya(column*(i)+j), j = 1,column)
@@ -137,11 +147,11 @@ c	write(8,1150) (ya(count+1+j), j = 1,nb)
 
 	stop
 
- 1000 format ('  NOTDOT   NWAKE')
+ 1000 format ('  NODTOT   NWAKE')
  1050 format ('   ',i4,'   ',i4)
-
- 1150 format (2f10.6)
-
+ 1100 format (' X(I), I=1...   ',i4,'            Airfoil x-coordinate')
+ 1150 format (6f10.6)
+ 1200 format (' Y(I), I=1...   ',i4,'            Airfoil y-coordinate')
  1250 format (' angle of attack')
  1300 format (' Mach number')
 
