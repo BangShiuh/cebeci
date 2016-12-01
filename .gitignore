@@ -2,9 +2,4 @@
 fort.5
 fort.6
 a.out
-exe/hspm
-exe/iprpm
-exe/inblp
-exe/stp2d
-exe/naca
-exe/airfoil
+/exe
