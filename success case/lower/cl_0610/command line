@@ -1,0 +1,94 @@
+bangshiuh@bangshiuh-Precision-M2800:~/github/cebeci/exe$ ./airfoil
+ NACA airfoil generator
+ Enter NACA airfoil 1st digit
+4.5
+ Enter NACA airfoil 2nd digit
+7
+ Enter NACA airfoil 3rd digit and 4th digit
+14
+ Enter number of points to be calculated (even number)
+200
+ Enter the angle of attack
+-3
+ Enter the mach number
+0.07
+bangshiuh@bangshiuh-Precision-M2800:~/github/cebeci/exe$ ./hspm
+ Your input file is 
+ naca.txt                                                                       
+  
+ Your output file is 
+ hspm.txt                                                                       
+  
+  
+ Calculations are successfully completed.
+  
+bangshiuh@bangshiuh-Precision-M2800:~/github/cebeci/exe$ ./iprpm
+ Flow parameters
+ ENTER Reference length BIGL = (1. for example)
+3.2
+ Enter reference velocity
+79.63
+ Enter  kinematic viscosity CNU = (1.6e-4 for example)
+1.6e-4 
+ Enter 1st x-station (NX0) for stability calculation
+5
+ Enter number of instability lines to be calcualted
+5
+  
+ ============================================
+ Generate iblp2d input file for lower surface of airfoil  with 
+ NXT,   NXTE,  NXS,   NPT,  ISWPT
+         101         101          14          81          20
+  RL            XCTR     ETAE     VGP     DETA     P2
+  1592600.00   4.2000   8.0000   1.0500   0.0100   1.0000
+  
+ lower.inp
+ 
+  
+ ============================================
+ Generate iblp2d input file for upper surface airfoil  with 
+ NXT,   NXTE,  NXS,   NPT,  ISWPT
+         101         101          14          81          20
+  RL            XCTR     ETAE     VGP     DETA     P2
+  1592600.00   4.2000   8.0000   1.0500   0.0100   1.0000
+  
+ upper.inp
+ 
+  
+ Calculations are successfully completed.
+bangshiuh@bangshiuh-Precision-M2800:~/github/cebeci/exe$ ./inblp
+ Enter input file name (include extension name)
+lower.inp
+ Your input file is 
+ lower.inp                                                                      
+  
+ This program bl.exe will generate several output files:
+ 1. output file name 
+ loOut.txt
+ 
+ 2. Generated stability input:
+ loStbInp.txt
+ 
+ 3. Velocity Profile in file fort.1
+  
+ Calculations are successfully completed.
+bangshiuh@bangshiuh-Precision-M2800:~/github/cebeci/exe$ ./stp2d
+ Enter input file name (include extension name)
+loStbInp.txt
+ Your input file is 
+ loStbInp.txt                                                                   
+  
+ This program stp2d will generate several output files:
+ 1. output file name 
+ loStb_out.txt
+ 
+ 2. Summary output file name
+ loStbSummaryOut.txt
+ 
+  
+ Calculations are successfully completed.
+  
+ Hit any key to close this DOS-window.
+
+bangshiuh@bangshiuh-Precision-M2800:~/github/cebeci/exe$ 
+

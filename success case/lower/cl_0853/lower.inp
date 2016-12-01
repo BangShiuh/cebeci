@@ -1,0 +1,134 @@
+  NXT   NXTE    NXS    NPT   ISWPT  isep  istab  icont
+  101    101     14     81     20      1      1      1
+  RL            XCTR     ETAE     VGP     DETA     P2
+  1377000.00   4.2000   8.0000   1.0500   0.0100   1.0000
+ xbl(i),i=1,nxt
+        0.005013         0.006250         0.017960         0.028730         0.039290
+        0.049720         0.060070         0.070350         0.080580         0.090770
+        0.100920         0.111040         0.121130         0.131190         0.141240
+        0.151260         0.161270         0.171260         0.181230         0.191200
+        0.201150         0.211090         0.221020         0.230940         0.240850
+        0.250760         0.260660         0.270550         0.280440         0.290320
+        0.300190         0.310070         0.319930         0.329800         0.339660
+        0.349520         0.359380         0.369240         0.379090         0.388950
+        0.398800         0.408650         0.418500         0.428360         0.438210
+        0.448060         0.457910         0.467770         0.477620         0.487480
+        0.497340         0.507200         0.517060         0.526920         0.536790
+        0.546660         0.556530         0.566400         0.576280         0.586150
+        0.596040         0.605920         0.615810         0.625700         0.635590
+        0.645490         0.655390         0.665300         0.675210         0.685120
+        0.695040         0.704790         0.714390         0.724010         0.733650
+        0.743320         0.753010         0.762730         0.772480         0.782250
+        0.792050         0.801870         0.811730         0.821610         0.831530
+        0.841470         0.851440         0.861440         0.871470         0.881540
+        0.891630         0.901760         0.911920         0.922110         0.932330
+        0.942580         0.952870         0.963190         0.973540         0.983930
+        0.994360
+ ybl(i),i=1,nxt
+        0.000322        -0.003830        -0.010540        -0.015860        -0.020390
+       -0.024250        -0.027540        -0.030330        -0.032690        -0.034650
+       -0.036280        -0.037600        -0.038670        -0.039500        -0.040140
+       -0.040600        -0.040920        -0.041110        -0.041190        -0.041190
+       -0.041110        -0.040970        -0.040780        -0.040550        -0.040290
+       -0.040010        -0.039710        -0.039400        -0.039080        -0.038750
+       -0.038420        -0.038080        -0.037740        -0.037400        -0.037050
+       -0.036700        -0.036340        -0.035970        -0.035580        -0.035180
+       -0.034770        -0.034330        -0.033860        -0.033370        -0.032840
+       -0.032280        -0.031680        -0.031040        -0.030350        -0.029620
+       -0.028830        -0.027990        -0.027100        -0.026150        -0.025150
+       -0.024080        -0.022960        -0.021780        -0.020540        -0.019240
+       -0.017880        -0.016470        -0.015010        -0.013500        -0.011950
+       -0.010350        -0.008720        -0.007050        -0.005360        -0.003650
+       -0.001930        -0.000230         0.001440         0.003100         0.004750
+        0.006370         0.007950         0.009500         0.010980         0.012400
+        0.013750         0.015000         0.016160         0.017190         0.018090
+        0.018850         0.019460         0.019880         0.020110         0.020140
+        0.019950         0.019510         0.018820         0.017850         0.016590
+        0.015020         0.013130         0.010890         0.008290         0.005310
+        0.001940
+ ubl(i),i=1,nxt
+        0.000000         0.555950         0.716980         0.825400         0.902990
+        0.960220         1.002520         1.033300         1.055070         1.069600
+        1.078500         1.082950         1.084050         1.082520         1.079040
+        1.074270         1.068550         1.062220         1.055540         1.048850
+        1.042200         1.035740         1.029730         1.024010         1.018740
+        1.013930         1.009640         1.005860         1.002520         0.999670
+        0.997350         0.995440         0.993860         0.992690         0.991850
+        0.991270         0.991100         0.991020         0.991020         0.991270
+        0.991520         0.991770         0.992020         0.992190         0.992190
+        0.992020         0.991690         0.991020         0.990100         0.988760
+        0.987090         0.984990         0.982460         0.979420         0.975950
+        0.971960         0.967430         0.962370         0.956760         0.950600
+        0.943960         0.936830         0.929110         0.920870         0.912290
+        0.903270         0.893780         0.883900         0.873730         0.863150
+        0.852440         0.841780         0.830990         0.820060         0.809090
+        0.798270         0.787200         0.776190         0.765560         0.755000
+        0.744620         0.734770         0.725130         0.716050         0.707560
+        0.699800         0.692780         0.686780         0.681700         0.677800
+        0.675360         0.674500         0.675230         0.678290         0.683640
+        0.692070         0.704160         0.721010         0.745060         0.782140
+        0.899320
+  nx0  ixt    uinf     bigl     alfar    omegar
+  15    5    68.8500   3.2000   0.1000   0.0350
+ 
+ 
+ hspm.txt                                                                       
+  Angle of attack =  -1.00000000000000     
+ 
+ 
+ -----------Data Explanation-------------
+ NXT NXTE NPT NXS ISWPT ISEP ISTAB ICONT
+  RL,XCTR,ETAE,VGP,DETA(1),P2(1)
+  X(1)  ...  X(NXT)
+  Y(1)  ...  Y(NXT)
+  UE(1) ...  UE(NXT)
+  NX0, IXT, UINF, BIGL, ALFAR, OMEGAR
+  NXT    ---  The number of x-stations,including wake points if there are
+              if there are no wake points, nxt = nxte
+  NXTe   ---  The number of x-stations on the body
+  NPT   ---  The number of normal grid points
+  nxs   ---  x - station where cals switch to inverse method
+  iswpt ---  total number of inv/vis
+  isep  ---  index:
+             = 1, turn on transition if laminar flow occurs
+             = 0, flow remains laminar even if laminar flow occurs
+  istab ---  index for stability calcualtion
+             = 1, yes. two input files for stability calculation
+                       will be generated, but user has to input
+                       nx0,ixt,uinf,bigl,alfar, omega
+                       nx0  : nx station stability calculation starts
+                       ixt  : no of lines stability 
+                              amplification will be calculated
+                       unif : freestream velocity
+                       bigl : ref. length on which Rey is calculated
+                       alfar; real value of stability wave number
+                       omega: real value of stability frequency
+                         both alfar & omega are normalized values
+             = 0, no.  no file will be generated. user does not
+                       have to input nx0,ixt,uinf,bigl,alfar, omega
+  icont ---  index for using continuation to guess alfar, omegar
+             = 1, yes. continuation method will be used to determine
+                  alfar, omegar. user can input arbitrary alfar, omegar
+             = 0, no. continuation method will not be used to determine
+                  alfar, omegar. user has to guess alfar, omegar as
+                  accurate as possible at nx0
+  X(I)  ---  The x-coordinate of geometry
+  Y(I)  ---  The y-coordinate of geometry
+  UE(I) ---  The external velocity
+  RL    ---  Reynolds number
+  XCTR  ---  Transition location
+  ETAE  ---  The boundary layer thickness
+  VGP   ---  The variable grid paramemter
+  DETA(1)--  The size of first normal grid
+  P2(1)  --  Initial pressure at first x-station
+ c
+ c the following variables are used for stability cal. only
+ c
+ NX0, IXT, UINF, BIGL, ALFAR, OMEGAR
+  NX0    --  1st NX station stability to be calculated
+  IXT    --  no of instability lines to be calcualted
+             to determine the transition location
+  UINF   --  Refernece velocity used to normalize the vel. scale
+  BIGL   --  Refernece length used to normalize the length scale
+  ALFAR  --  Normalized instability wave number
+  OMEGAR --  Normalized instability wave frequency

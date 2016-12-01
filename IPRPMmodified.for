@@ -87,9 +87,7 @@ C turbulent flow computation with smaller initial step deltaEta
 
 C===============================================
 C for both surfaces
-	WRITE(6,*)"Enter input file name (its format must be ",
-     *         "the same as the panel output file eg. panelOut.txt)"
-      READ (5, *) PANEL
+      PANEL = "hspm.txt"
 C      PANEL = "N0012a0.out"
 
       NUMUP = 0
@@ -511,9 +509,7 @@ C***** End of Modification *****
 	PRINT*," "
 	PRINT*,"Calculations are successfully completed."
 C       PRINT*,"The output is saved in ", OUTPUT_NAME
-	PRINT*," "
- 	PRINT*,"Hit any key to close this DOS-window."
- 	READ(5,*) 	 
+	 
   
  8000 FORMAT(20I3)
  8101 FORMAT(7F10.5)
